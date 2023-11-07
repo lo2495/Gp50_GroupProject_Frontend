@@ -1,0 +1,52 @@
+<header-component (logout)="logout()"></header-component>
+<div class="container">
+    <div class="content-wrapper">
+        <admin-sidenav-component></admin-sidenav-component>
+        <div class="table-container">
+            <table mat-table [dataSource]="students" class="mat-elevation-z8">
+                <!-- Column definitions -->
+                <ng-container matColumnDef="StudentID">
+                    <th mat-header-cell *matHeaderCellDef>StudentID</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentID }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Name }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="StudentEmail">
+                    <th mat-header-cell *matHeaderCellDef>Student Email</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentEmail }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Gender }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="BirthDate">
+                    <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+                    <td mat-cell *matCellDef="let student">{{ student.BirthDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="PhoneNumber">
+                    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                    <td mat-cell *matCellDef="let student">{{ student.PhoneNumber }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let student">
+                      <button mat-icon-button color="warn" (click)="deleteStudent(student)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                <!-- Table rows -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let student; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

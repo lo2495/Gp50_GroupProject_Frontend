@@ -1,0 +1,65 @@
+<header-component (logout)="logout()"></header-component>
+<div class="container">
+    <div class="content-wrapper">
+        <admin-sidenav-component></admin-sidenav-component>
+        <div class="card-wrapper">
+            <mat-card class="card-spacing">
+                <mat-card-header>
+                    <div mat-card-avatar class="bookmark-icon">
+                        <mat-icon class="student-icon">account_circle</mat-icon>
+                    </div>
+                    <mat-card-title>Students</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Total Number of Students: {{ totalStudents }}</p>
+                </mat-card-content>
+                <div class="divider"></div>
+                <mat-card-actions>
+                    <mat-list>
+                        <mat-list-item>
+                            <span class="clickable-text" [routerLink]="'/add-students'">
+                                <mat-icon>add</mat-icon>
+                                Add Students Accounts
+                            </span>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <span class="clickable-text" [routerLink]="'/view-students'">
+                                <mat-icon>visibility</mat-icon>
+                                View Students Records
+                            </span>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card class="card-spacing">
+                <mat-card-header>
+                    <div mat-card-avatar class="bookmark-icon">
+                        <mat-icon class="teacher-icon">school</mat-icon>
+                    </div>
+                    <mat-card-title>Teachers</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Total Number of Teachers: {{ totalTeachers }}</p>
+                </mat-card-content>
+                <div class="divider"></div>
+                <mat-card-actions>
+                    <mat-list>
+                        <mat-list-item>
+                            <span class="clickable-text" [routerLink]="'/add-teachers'">
+                                <mat-icon>add</mat-icon>
+                                Add Teachers Account
+                            </span>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <span class="clickable-text" [routerLink]="'/view-teachers'">
+                                <mat-icon>visibility</mat-icon>
+                                View Teachers Records
+                            </span>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

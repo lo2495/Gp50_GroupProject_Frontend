@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav #sidenav mode="side" [opened]="(sidebarService.sidebarOpen$ | async)" class="sidebar">
+    <mat-nav-list>
+      <a mat-list-item (click)="navigateTo('/admin-home')">
+        <mat-icon>home</mat-icon>
+        <span class="sidebar-label">Home</span>
+      </a>
+      <a mat-list-item (click)="navigateTo('/admin-teacher')">
+        <mat-icon>person</mat-icon>
+        <span class="sidebar-label">Teachers Account</span>
+      </a>
+      <a mat-list-item (click)="navigateTo('/admin-student')">
+        <mat-icon>school</mat-icon>
+        <span class="sidebar-label">Students Account</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="sidebar-button" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Moodle</span>
+  <div class="spacer"></div>
+  <span class="user-name">{{ userName }}</span>
+  <button mat-icon-button class="user-icon" matTooltip="User Account" [matMenuTriggerFor]="userAccountMenu">
+    <mat-icon>account_circle</mat-icon>
+    </button>
+  <mat-menu #userAccountMenu="matMenu" xPosition="after">
+    <button mat-menu-item (click)="openProfile()">Profile</button>
+    <button mat-menu-item (click)="onLogout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
