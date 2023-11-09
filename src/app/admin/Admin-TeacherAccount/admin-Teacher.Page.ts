@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-teacher',
@@ -10,25 +8,31 @@ import { Router } from '@angular/router';
 
 })
 export class AdminTeacherPage {
-  userName: string | undefined;
+  teachers: any[] = [];
   constructor(
-    private userService: UserService,
-    private http: HttpClient,
-    private router: Router) {}
+    private http: HttpClient) {}
+    displayedColumns: string[] = ['TeacherID', 'Name','Email','Gender','DateOfEmployment','PhoneNumber','Department','Designation', 'Actions'];
 
   ngOnInit(): void {
-    this.userName = this.userService.getUserName();
+    this.fetchTeachers();
   }
-
-  logout() {
-    this.http.post('http://localhost:5000/api/logout', {}).subscribe(
+  fetchTeachers() {
+    this.http.get('http://localhost:5000/api/teachers').subscribe(
       (response: any) => {
-        console.log(response.message);
-        this.router.navigate(['']);
+        this.teachers = response;
       },
       (error: any) => {
-        console.error('Logout failed:', error);
+        console.error('Failed to fetch teachers:', error);
       }
     );
+  }
+  deleteTeacher(teacher: any) {
+    const index = this.teachers.indexOf(teacher);
+    if (index !== -1) {
+      this.teachers.splice(index, 1);
+    }
+  }
+  addTeacher(){
+
   }
 }

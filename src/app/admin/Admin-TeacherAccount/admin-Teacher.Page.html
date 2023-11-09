@@ -1,6 +1,63 @@
-<header-component (logout)="logout()"></header-component>
+<header-component></header-component>
 <div class="container">
     <div class="content-wrapper">
         <admin-sidenav-component></admin-sidenav-component>
+        <div class="table-container">
+            <button mat-raised-button color="primary" class="add-student-button" (click)="addTeacher()"><mat-icon>add</mat-icon>   Add Teacher</button>
+            <table mat-table [dataSource]="teachers" class="mat-elevation-z8">
+                <!-- Column definitions -->
+                <ng-container matColumnDef="TeacherID">
+                    <th mat-header-cell *matHeaderCellDef>TeacherID</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.TeacherID }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.Name }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.Email }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.Gender }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="DateOfEmployment">
+                    <th mat-header-cell *matHeaderCellDef>Date of Employment</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.EmploymentDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="PhoneNumber">
+                    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.PhoneNumber }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Department">
+                    <th mat-header-cell *matHeaderCellDef>Department</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.Department }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Designation">
+                    <th mat-header-cell *matHeaderCellDef>Designation</th>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.Designation }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let teacher">
+                      <button mat-icon-button color="warn" (click)="deleteTeacher(teacher)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                <!-- Table rows -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let teacher; columns: displayedColumns;"></tr>
+            </table>
+        </div>
     </div>
 </div>

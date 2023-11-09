@@ -7,6 +7,7 @@ import { SidebarService } from '../SideBarService';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserService } from 'src/app/shared/user.service.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'header-component',
@@ -28,7 +29,8 @@ export class HeaderComponent {
   constructor(
     private sidebarService: SidebarService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient,
   ) {}
   ngOnInit(): void {
     this.userName = this.userService.getUserName();
@@ -37,9 +39,16 @@ export class HeaderComponent {
     this.sidebarService.toggleSidebar();
   }
   openProfile() {
-    // Add your logic for opening the user's profile here
   }
   onLogout() {
-    this.logout.emit();
+    this.http.post('http://localhost:5000/api/logout', {}).subscribe(
+      (response: any) => {
+        console.log(response.message);
+        this.router.navigate(['']);
+      },
+      (error: any) => {
+        console.error('Logout failed:', error);
+      }
+    );
   }
 }

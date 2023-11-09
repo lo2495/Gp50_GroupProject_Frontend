@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-home',
@@ -10,31 +8,16 @@ import { Router } from '@angular/router';
 
 })
 export class AdminHomePage {
-  userName: string | undefined;
   totalStudents!: number;
   totalTeachers!: number;
   constructor(
-    private userService: UserService,
-    private http: HttpClient,
-    private router: Router) { }
+    private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.userName = this.userService.getUserName();
     this.fetchTotalStudents();
     this.fetchTotalTeachers();
   }
 
-  logout() {
-    this.http.post('http://localhost:5000/api/logout', {}).subscribe(
-      (response: any) => {
-        console.log(response.message);
-        this.router.navigate(['']);
-      },
-      (error: any) => {
-        console.error('Logout failed:', error);
-      }
-    );
-  }
   fetchTotalStudents() {
     this.http.get<any>('http://localhost:5000/api/students/count').subscribe(
       (response: any) => {
