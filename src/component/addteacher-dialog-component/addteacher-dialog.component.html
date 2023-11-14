@@ -1,0 +1,60 @@
+<h2 mat-dialog-title class="dialog-title">Add Teacher</h2>
+<mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="teacher.name" name="name" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Date of Employment</mat-label>
+                <input matInput [matDatepicker]="datePicker" [(ngModel)]="teacher.dateOfEmployment"
+                    name="dateOfEmployment" required>
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Phone Number</mat-label>
+                <input matInput [(ngModel)]="teacher.phoneNumber" name="phoneNumber" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Department</mat-label>
+                <input matInput [(ngModel)]="teacher.department" name="department" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="teacher.email" name="email" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Designation</mat-label>
+              <mat-select [(ngModel)]="teacher.designation" name="designation" required>
+                <mat-option value="Professor">Professor</mat-option>
+                <mat-option value="Associate Professor">Associate Professor</mat-option>
+                <mat-option value="Assistant Professor">Assistant Professor</mat-option>
+                <mat-option value="Program Leader">Program Leader</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-radio-group [(ngModel)]="teacher.gender" name="gender" required>
+                <mat-label>Gender</mat-label>
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-radio-button value="F">Female</mat-radio-button>
+            </mat-radio-group>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" (click)="addTeacher()" [mat-dialog-close]="teacher">Save</button>
+</mat-dialog-actions>

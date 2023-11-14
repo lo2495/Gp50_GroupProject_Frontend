@@ -28,7 +28,7 @@
 
                 <ng-container matColumnDef="BirthDate">
                     <th mat-header-cell *matHeaderCellDef>Birth Date</th>
-                    <td mat-cell *matCellDef="let student">{{ student.BirthDate }}</td>
+                    <td mat-cell *matCellDef="let student">{{ student.BirthDate | date: 'yyyy-MM-dd'}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="PhoneNumber">

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AddTeacherDialogComponent } from 'src/component/addteacher-dialog-component/addteacher-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmDialogComponent } from 'src/component/DeleteConfirm-dialog-component/DeleteConfirm-dialog.component';
 
 @Component({
   selector: 'app-admin-teacher',
@@ -10,8 +13,9 @@ import { HttpClient } from '@angular/common/http';
 export class AdminTeacherPage {
   teachers: any[] = [];
   constructor(
-    private http: HttpClient) {}
-    displayedColumns: string[] = ['TeacherID', 'Name','Email','Gender','DateOfEmployment','PhoneNumber','Department','Designation', 'Actions'];
+    private http: HttpClient,
+    private dialog: MatDialog) { }
+  displayedColumns: string[] = ['TeacherID', 'Name', 'Email', 'Gender', 'DateOfEmployment', 'PhoneNumber', 'Department', 'Designation', 'Actions'];
 
   ngOnInit(): void {
     this.fetchTeachers();
@@ -27,12 +31,35 @@ export class AdminTeacherPage {
     );
   }
   deleteTeacher(teacher: any) {
-    const index = this.teachers.indexOf(teacher);
-    if (index !== -1) {
-      this.teachers.splice(index, 1);
-    }
-  }
-  addTeacher(){
+    const dialogRef = this.dialog.open(DeleteConfirmDialogComponent, {
+      width: '300px'
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.http.delete(`http://localhost:5000/api/teachers/${teacher.TeacherID}`).subscribe(
+          (response) => {
+            console.log('Teacher deleted successfully');
+            const index = this.teachers.findIndex((t) => t.TeacherID === teacher.TeacherID);
+            if (index >= 0) {
+              this.teachers.splice(index, 1);
+              location.reload();
+            }
+          },
+          (error) => {
+            console.error('Error deleting teacher:', error);
+          }
+        );
+      }
+    });
+  }
+  addTeacher() {
+    const dialogRef = this.dialog.open(AddTeacherDialogComponent, {
+      width: '60%',
+      height: '70%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }

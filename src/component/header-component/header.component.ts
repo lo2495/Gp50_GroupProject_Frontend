@@ -32,15 +32,25 @@ export class HeaderComponent {
     private router: Router,
     private http: HttpClient,
   ) {}
+
   ngOnInit(): void {
-    this.userName = this.userService.getUserName();
+    this.userName = localStorage.getItem('userName') ?? ''; 
+    if (!this.userName) {
+      this.userName = this.userService.getUserName();
+      localStorage.setItem('userName', this.userName); 
+    }
   }
+
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
   }
+
   openProfile() {
+    // Implement the functionality to open the user's profile
   }
+
   onLogout() {
+    localStorage.removeItem('userName'); 
     this.http.post('http://localhost:5000/api/logout', {}).subscribe(
       (response: any) => {
         console.log(response.message);

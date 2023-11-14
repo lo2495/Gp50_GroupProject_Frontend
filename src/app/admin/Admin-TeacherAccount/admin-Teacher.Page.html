@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <admin-sidenav-component></admin-sidenav-component>
         <div class="table-container">
-            <button mat-raised-button color="primary" class="add-student-button" (click)="addTeacher()"><mat-icon>add</mat-icon>   Add Teacher</button>
+            <button mat-raised-button color="primary" class="add-teacher-button" (click)="addTeacher()"><mat-icon>add</mat-icon>   Add Teacher</button>
             <table mat-table [dataSource]="teachers" class="mat-elevation-z8">
                 <!-- Column definitions -->
                 <ng-container matColumnDef="TeacherID">
@@ -28,8 +28,8 @@
 
                 <ng-container matColumnDef="DateOfEmployment">
                     <th mat-header-cell *matHeaderCellDef>Date of Employment</th>
-                    <td mat-cell *matCellDef="let teacher">{{ teacher.EmploymentDate }}</td>
-                </ng-container>
+                    <td mat-cell *matCellDef="let teacher">{{ teacher.EmploymentDate | date: 'yyyy-MM-dd' }}</td>
+                  </ng-container>
 
                 <ng-container matColumnDef="PhoneNumber">
                     <th mat-header-cell *matHeaderCellDef>Phone Number</th>

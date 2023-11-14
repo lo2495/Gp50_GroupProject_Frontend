@@ -1,0 +1,52 @@
+<h2 mat-dialog-title class="dialog-title">Add Student</h2>
+<mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="student.Name" name="Name" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Birth Date</mat-label>
+                <input matInput [matDatepicker]="datePicker" [(ngModel)]="student.BirthDate"
+                    name="BirthDate" required>
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Phone Number</mat-label>
+                <input matInput [(ngModel)]="student.phoneNumber" name="PhoneNumber" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="student.Status" name="Status" required>
+                    <mat-option value="undergraduate">undergraduate</mat-option>
+                    <mat-option value="postgraduate">postgraduate</mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Major</mat-label>
+              <input matInput [(ngModel)]="student.Major" name="Major" required>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-radio-group [(ngModel)]="student.Gender" name="Gender" required>
+                <mat-label>Gender</mat-label>
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-radio-button value="F">Female</mat-radio-button>
+            </mat-radio-group>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" (click)="addStudent()" [mat-dialog-close]="student">Save</button>
+</mat-dialog-actions>
