@@ -17,13 +17,13 @@
                 <mat-card-actions>
                     <mat-list>
                         <mat-list-item>
-                            <span class="clickable-text" [routerLink]="'/add-students'">
+                            <span class="clickable-text" (click)="addStudent()">
                                 <mat-icon>add</mat-icon>
                                 Add Students Accounts
                             </span>
                         </mat-list-item>
                         <mat-list-item>
-                            <span class="clickable-text" [routerLink]="'/view-students'">
+                            <span class="clickable-text" (click)="navigateTo('/admin-student')">
                                 <mat-icon>visibility</mat-icon>
                                 View Students Records
                             </span>
@@ -46,13 +46,13 @@
                 <mat-card-actions>
                     <mat-list>
                         <mat-list-item>
-                            <span class="clickable-text" [routerLink]="'/add-teachers'">
+                            <span class="clickable-text" (click)="addTeacher()">
                                 <mat-icon>add</mat-icon>
                                 Add Teachers Account
                             </span>
                         </mat-list-item>
                         <mat-list-item>
-                            <span class="clickable-text" [routerLink]="'/view-teachers'">
+                            <span class="clickable-text" (click)="navigateTo('/admin-teacher')">
                                 <mat-icon>visibility</mat-icon>
                                 View Teachers Records
                             </span>
