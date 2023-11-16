@@ -8,6 +8,7 @@ import { StudentHome } from './student/Student-Home/Student-Home';
 import { StudentAcademicResults } from './student/Student-AcademicResults/Student-AcademicResults';
 import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
+import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,7 +18,10 @@ const routes: Routes = [
   { path: 'student-home', component: StudentHome },
   { path: 'student-academic', component: StudentAcademicResults },
   { path: 'teacher-home', component: TeacherHome },
-  { path: 'teacher-records', component: TeacherStudentsRecord }
+  { path: 'teacher-records', component: TeacherStudentsRecord},
+  { path: 'teacher-scores', component: TeacherStudentsScores }
+
+
 ];
 
 @NgModule({

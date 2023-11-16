@@ -1,0 +1,62 @@
+
+<header-component></header-component>
+
+<div class="container">
+    <div class="content-wrapper">
+        <teacher-sidenav-component></teacher-sidenav-component>
+        <div class="table-container">
+            <button mat-raised-button color="primary" class="add-student-button" (click)="addStudent()"><mat-icon>add</mat-icon>   Add Student</button>
+            <table mat-table [dataSource]="students" class="mat-elevation-z8">
+                <!-- Column definitions -->
+                <ng-container matColumnDef="StudentID">
+                    <th mat-header-cell *matHeaderCellDef>StudentID</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentID }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Name }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="StudentEmail">
+                    <th mat-header-cell *matHeaderCellDef>Student Email</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentEmail }}</td>
+                </ng-container>
+
+                
+
+                <ng-container matColumnDef="BirthDate">
+                    <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+                    <td mat-cell *matCellDef="let student">{{ student.BirthDate | date: 'yyyy-MM-dd'}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="PhoneNumber">
+                    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                    <td mat-cell *matCellDef="let student">{{ student.PhoneNumber }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Status }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Major">
+                    <th mat-header-cell *matHeaderCellDef>Major</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Major }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let student">
+                      <button mat-icon-button color="warn" (click)="deleteStudent(student)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                <!-- Table rows -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let student; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -36,6 +36,7 @@ import { StudentHome } from './student/Student-Home/Student-Home';
 import { StudentAcademicResults } from './student/Student-AcademicResults/Student-AcademicResults';
 import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
+import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-
     LoginComponent,
     TeacherHome,
     TeacherStudentsRecord,
+    TeacherStudentsScores,
     StudentHome,
     StudentAcademicResults,
     AdminStudentPage,
