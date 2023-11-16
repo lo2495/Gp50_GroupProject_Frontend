@@ -1,2 +1,40 @@
 <header-component></header-component>
-<teacher-sidenav-component></teacher-sidenav-component>
+<div class="container">
+    <div class="content-wrapper">
+        <teacher-sidenav-component></teacher-sidenav-component>
+        <div class="card-wrapper">
+            <mat-card class="card-spacing">
+                <mat-card-header>
+                    <div mat-card-avatar class="bookmark-icon">
+                        <mat-icon class="student-icon">account_circle</mat-icon>
+                    </div>
+                    <mat-card-title>Students</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Total Number of Students: {{ totalStudents }}</p>
+                </mat-card-content>
+                <div class="divider"></div>
+                <mat-card-actions>
+                    <mat-list>
+                        <mat-list-item>
+                            <span class="clickable-text" (click)="addStudent()">
+                                <mat-icon>add</mat-icon>
+                                Add Students Accounts
+                            </span>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <span class="clickable-text" (click)="navigateTo('/admin-student')">
+                                <mat-icon>visibility</mat-icon>
+                                View Students Records
+                            </span>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-actions>
+            </mat-card>
+
+           
+                  
+          
+        </div>
+    </div>
+</div>

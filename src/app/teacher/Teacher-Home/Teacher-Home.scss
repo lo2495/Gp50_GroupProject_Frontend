@@ -1,0 +1,82 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    margin: 20px;
+    padding: 25px;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.card-spacing {
+    margin-top: 80px;
+    margin-left: 100px;
+    padding: 25px;
+    width: 450px;
+    height: 400px;
+}
+
+.student-icon,
+.teacher-icon {
+    color: #4caf50;
+}
+
+.clickable-text {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.clickable-text:hover {
+    color: grey;
+}
+
+.divider {
+    height: 1px;
+    background-color: gray;
+    margin: 10px 0;
+}
+
+.bookmark-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #ff5722;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.bookmark-icon mat-icon {
+    font-size: 24px;
+    color: white;
+}
+
+mat-card-content {
+    font-size: 16px;
+}
