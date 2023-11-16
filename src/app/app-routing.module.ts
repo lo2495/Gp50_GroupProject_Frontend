@@ -9,6 +9,7 @@ import { StudentAcademicResults } from './student/Student-AcademicResults/Studen
 import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
 import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
+import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'student-academic', component: StudentAcademicResults },
   { path: 'teacher-home', component: TeacherHome },
   { path: 'teacher-records', component: TeacherStudentsRecord},
-  { path: 'teacher-scores', component: TeacherStudentsScores }
+  { path: 'teacher-scores', component: TeacherStudentsScores },
+  { path: 'teacher-class', component: TeacherClass}
 
 
 ];

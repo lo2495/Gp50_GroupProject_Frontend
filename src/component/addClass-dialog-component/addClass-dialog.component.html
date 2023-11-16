@@ -1,0 +1,79 @@
+<h2 mat-dialog-title class="dialog-title">Add Class</h2>
+<mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Course Name</mat-label>
+                <input matInput [(ngModel)]="Class.CourseName" name="CourseName" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Class Date</mat-label>
+                <input matInput [matDatepicker]="datePicker" [(ngModel)]="Class.ClassDate"
+                    name="ClassDate" required>
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Class Type</mat-label>
+                <mat-select [(ngModel)]="Class.ClassType" name="ClassType" required>
+                    <mat-option value="Lecture">Lecture</mat-option>
+                    <mat-option value="Tutorial">Tutorial</mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Venue</mat-label>
+                <mat-select [(ngModel)]="Class.Venue" name="Venue" required>
+                    <mat-option value="JCC_DC309">JCC DC309</mat-option>
+                    <mat-option value="JCC_DC310">JCC DC310</mat-option>
+                    <mat-option value="JCC_DC311">JCC DC311</mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Start Time</mat-label>
+              <mat-select [(ngModel)]="Class.StartTime" name="StartTime" required>
+                    <mat-option value="08:00">08:00</mat-option>
+                    <mat-option value="09:00">09:00</mat-option>
+                    <mat-option value="10:00">10:00</mat-option>
+                    <mat-option value="11:00">11:00</mat-option>
+                    <mat-option value="12:00">12:00</mat-option>
+                    <mat-option value="13:00">13:00</mat-option>
+                    <mat-option value="14:00">14:00</mat-option>
+                    <mat-option value="15:00">15:00</mat-option>
+                    <mat-option value="16:00">16:00</mat-option>
+                    <mat-option value="17:00">17:00</mat-option>
+                    <mat-option value="18:00">18:00</mat-option>
+                  </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>End Time</mat-label>
+              <mat-select [(ngModel)]="Class.EndTime" name="EndTime" required>
+                    <mat-option value="10:00">10:00</mat-option>
+                    <mat-option value="11:00">11:00</mat-option>
+                    <mat-option value="12:00">12:00</mat-option>
+                    <mat-option value="13:00">13:00</mat-option>
+                    <mat-option value="14:00">14:00</mat-option>
+                    <mat-option value="15:00">15:00</mat-option>
+                    <mat-option value="16:00">16:00</mat-option>
+                    <mat-option value="17:00">17:00</mat-option>
+                    <mat-option value="18:00">18:00</mat-option>
+                    <mat-option value="19:00">19:00</mat-option>
+                    <mat-option value="20:00">20:00</mat-option>
+                  </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" (click)="addClass()" [mat-dialog-close]="Class">Save</button>
+</mat-dialog-actions>

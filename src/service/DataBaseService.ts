@@ -6,27 +6,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DatabaseService {
-  private baseUrl = 'http://localhost:5000'; 
-
-  constructor(private http: HttpClient) {}
-
+  private baseUrl = 'http://localhost:5000';
+  userName: string | undefined;
+  constructor(private http: HttpClient) { }
   insertTeacher(teacher: any): Observable<any> {
-    const url = `${this.baseUrl}/api/Addteachers`; 
+    const url = `${this.baseUrl}/api/Addteachers`;
     return this.http.post<any>(url, teacher);
   }
   insertStudent(student: any): Observable<any> {
-    const url = `${this.baseUrl}/api/AddStudents`; 
+    const url = `${this.baseUrl}/api/AddStudents`;
     return this.http.post<any>(url, student);
   }
-  editScore(score: any): Observable<any> {
-    const url = `${this.baseUrl}/api/AddStudents`; 
-    return this.http.post<any>(url, score);
+  insertClass(Class: any, userName:string): Observable<any> {
+    const url = `${this.baseUrl}/api/AddClass`;
+    Class.InstructorName = userName;
+    return this.http.post<any>(url, Class);
   }
-
-
-
-
-
-
+  editScore(student: any): Observable<any> {
+    const url = `${this.baseUrl}/api/AddStudents`;
+    return this.http.post<any>(url, student);
+  }
 }
-

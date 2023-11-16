@@ -1,0 +1,47 @@
+<header-component></header-component>
+<div class="container">
+    <div class="content-wrapper">
+        <teacher-sidenav-component></teacher-sidenav-component>
+        <div class="table-container">
+            <button mat-raised-button color="primary" class="add-class-button" (click)="addClass()">
+                <mat-icon>add</mat-icon> Add Class
+            </button>
+
+            <table mat-table class="class-table" [dataSource]="classes">
+                <ng-container matColumnDef="CourseName">
+                    <th mat-header-cell *matHeaderCellDef>Course Name</th>
+                    <td mat-cell *matCellDef="let class">{{ class.CourseName }}</td>
+                </ng-container>
+                <ng-container matColumnDef="ClassType">
+                    <th mat-header-cell *matHeaderCellDef>Class Type</th>
+                    <td mat-cell *matCellDef="let class">{{ class.ClassType }}</td>
+                </ng-container>
+                <ng-container matColumnDef="ClassDate">
+                    <th mat-header-cell *matHeaderCellDef>Class Date</th>
+                    <td mat-cell *matCellDef="let class">{{ class.ClassDate }}</td>
+                </ng-container>
+                <ng-container matColumnDef="StartTime">
+                    <th mat-header-cell *matHeaderCellDef>Start Time</th>
+                    <td mat-cell *matCellDef="let class">{{ class.StartTime }}</td>
+                </ng-container>
+                <ng-container matColumnDef="EndTime">
+                    <th mat-header-cell *matHeaderCellDef>End Time</th>
+                    <td mat-cell *matCellDef="let class">{{ class.EndTime }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Venue">
+                    <th mat-header-cell *matHeaderCellDef>Venue</th>
+                    <td mat-cell *matCellDef="let class">{{ class.Venue }}</td>
+                </ng-container>
+                <ng-container matColumnDef="InstructorName">
+                    <th mat-header-cell *matHeaderCellDef>Instructor</th>
+                    <td mat-cell *matCellDef="let class">{{ class.InstructorName }}</td>
+                </ng-container>
+
+                <!-- Repeat the above ng-container for other columns -->
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let class; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

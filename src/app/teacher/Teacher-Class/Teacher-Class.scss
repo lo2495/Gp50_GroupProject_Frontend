@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+.table-container {
+    position: relative;
+    top: 20px; /* Adjust the top position according to your needs */
+    left: 100px;
+}
+
+.add-class-button {
+    position: relative;
+    margin: 20px;
+  }
