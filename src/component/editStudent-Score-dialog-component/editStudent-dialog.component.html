@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="dialog-title">Edit Students' Scores </h2>
+<mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="100px">
+        
+        
+        
+        
+        
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Test</mat-label>
+                <input matInput [(ngModel)]="student.Test" name="Test" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        
+      
+            
+       
+    </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" (click)="editScore()" [mat-dialog-close]="student">Save</button>
+</mat-dialog-actions>

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from 'src/component/addStudent-dialog-component/addStudent-dialog.component';
 import { DeleteConfirmDialogComponent } from 'src/component/DeleteConfirm-dialog-component/DeleteConfirm-dialog.component';
+import { EditStudentDialogComponent } from 'src/component/editStudent-Score-dialog-component/editStudent-dialog.component';
+
 
 @Component({
     selector: 'app-teacher-studentsscore',
@@ -15,7 +17,7 @@ export class TeacherStudentsScores {
         constructor(
           private http: HttpClient,
           private dialog: MatDialog) {}
-          displayedColumns: string[] = ['StudentID', 'Name','StudentEmail','BirthDate','PhoneNumber','Status','Major','Actions'];
+          displayedColumns: string[] = ['StudentID', 'Name','StudentEmail','Major','Test',  'Edit','Del'];
         ngOnInit(): void {
           this.fetchStudents();
         }
@@ -63,4 +65,37 @@ export class TeacherStudentsScores {
           dialogRef.afterClosed().subscribe(result => {
           });
         }
-    }
+   
+   
+        editStudent(){
+          
+          const dialogRef = this.dialog.open(EditStudentDialogComponent, {
+            width: '60%',
+            height: '50%'
+          });
+      
+          dialogRef.afterClosed().subscribe(result => {
+          });
+      
+
+
+
+
+        }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+      }

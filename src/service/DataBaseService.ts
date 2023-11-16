@@ -18,4 +18,15 @@ export class DatabaseService {
     const url = `${this.baseUrl}/api/AddStudents`; 
     return this.http.post<any>(url, student);
   }
+  editScore(score: any): Observable<any> {
+    const url = `${this.baseUrl}/api/AddStudents`; 
+    return this.http.post<any>(url, score);
+  }
+
+
+
+
+
+
 }
+
