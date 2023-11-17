@@ -13,6 +13,7 @@ export class DatabaseService {
     const url = `${this.baseUrl}/api/Addteachers`;
     return this.http.post<any>(url, teacher);
   }
+  
   insertStudent(student: any): Observable<any> {
     const url = `${this.baseUrl}/api/AddStudents`;
     return this.http.post<any>(url, student);
@@ -22,8 +23,17 @@ export class DatabaseService {
     Class.InstructorName = userName;
     return this.http.post<any>(url, Class);
   }
-  editScore(student: any): Observable<any> {
-    const url = `${this.baseUrl}/api/AddStudents`;
+
+
+  ChangeScores(student: any): Observable<any> {
+    const url = `${this.baseUrl}/api/EditScore`;
     return this.http.post<any>(url, student);
   }
+
+
+
+
 }
+
+
+

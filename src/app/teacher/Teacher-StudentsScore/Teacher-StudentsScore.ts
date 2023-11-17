@@ -17,7 +17,7 @@ export class TeacherStudentsScores {
         constructor(
           private http: HttpClient,
           private dialog: MatDialog) {}
-          displayedColumns: string[] = ['StudentID', 'Name','StudentEmail','Major','Test',  'Edit','Del'];
+          displayedColumns: string[] = ['StudentID', 'Name','StudentEmail','Major', 'Test', 'Edit','Del'];
         ngOnInit(): void {
           this.fetchStudents();
         }

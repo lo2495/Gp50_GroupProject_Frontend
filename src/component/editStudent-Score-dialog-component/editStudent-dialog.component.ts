@@ -13,7 +13,7 @@ import { DatabaseService } from 'src/service/DataBaseService';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'editStudent-dialog.component',
+    selector: 'editStudent-dialog-component',
     templateUrl: './editStudent-dialog.component.html',
     styleUrls: ['./editStudent-dialog.component.scss'],
     standalone: true,
@@ -37,15 +37,21 @@ export class EditStudentDialogComponent {
         private databaseService: DatabaseService,
         private datePipe: DatePipe) { }
     student: any = {};
-    editScore() {
-          this.databaseService.editScore(this.student).subscribe(
+    editStudent() {
+        const formattedDate = this.datePipe.transform(
+            this.student.BirthDate,
+            'yyyy-MM-dd'
+          );
+          this.student.BirthDate = formattedDate;
+      
+          this.databaseService.ChangeScores(this.student).subscribe(
             (response) => {
-              console.log('student edited successfully');
+              console.log('student editted successfully');
               this.dialogRef.close();
               location.reload();
             },
             (error) => {
-              console.error('Error editing student:', error);
+              console.error('Error editting student:', error);
             }
           );
     }
