@@ -38,13 +38,9 @@ export class EditStudentDialogComponent {
         private datePipe: DatePipe) { }
     student: any = {};
     editStudent() {
-        const formattedDate = this.datePipe.transform(
-            this.student.BirthDate,
-            'yyyy-MM-dd'
-          );
-          this.student.BirthDate = formattedDate;
+        
       
-          this.databaseService.ChangeScores(this.student).subscribe(
+          this.databaseService.ChangeGrades(this.student).subscribe(
             (response) => {
               console.log('student editted successfully');
               this.dialogRef.close();
