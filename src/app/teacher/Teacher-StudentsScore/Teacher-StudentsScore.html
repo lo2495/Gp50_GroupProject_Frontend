@@ -27,14 +27,16 @@
                     <th mat-header-cell *matHeaderCellDef>Major</th>
                     <td mat-cell *matCellDef="let student">{{ student.Major }}</td>
                 </ng-container>
-
+                
+                
+                
                 <ng-container matColumnDef="Grade">
                   <th mat-header-cell *matHeaderCellDef>Grade</th>
                   <td mat-cell *matCellDef="let student">
-                  <span class="clickable-text" (click)="editStudent()">{{ student.Grade }}</span>
+                    <span class="clickable-text" (click)="editStudent()"
+                      [ngClass]="{'red-text': student.Grade === 'F'}">{{ student.Grade }}</span>
                   </td>
-                  
-              </ng-container>
+                </ng-container>
 
              
 

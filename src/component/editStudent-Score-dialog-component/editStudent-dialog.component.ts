@@ -38,20 +38,19 @@ export class EditStudentDialogComponent {
         private datePipe: DatePipe) { }
     student: any = {};
     editStudent() {
-        
-      
-          this.databaseService.ChangeGrades(this.student).subscribe(
-            (response) => {
-              console.log('student editted successfully');
-              this.dialogRef.close();
-              location.reload();
-            },
-            (error) => {
-              console.error('Error editting student:', error);
-            }
-          );
+      this.databaseService.ChangeGrades(this.student).subscribe(
+        (response) => {
+          console.log('Student edited successfully');
+          this.dialogRef.close();
+          location.reload();
+        },
+        (error) => {
+          console.error('Error editing student:', error);
+        }
+      );
     }
+    
     closeDialog() {
-    this.dialogRef.close();
+      this.dialogRef.close();
+    }
   }
-}

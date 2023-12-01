@@ -67,20 +67,14 @@ export class TeacherStudentsScores {
         }
    
    
-        editStudent(){
-          
+        editStudent() {
           const dialogRef = this.dialog.open(EditStudentDialogComponent, {
             width: '60%',
             height: '50%'
           });
-      
           dialogRef.afterClosed().subscribe(result => {
           });
-      
-
-
-
-
+          
         }
    
    
