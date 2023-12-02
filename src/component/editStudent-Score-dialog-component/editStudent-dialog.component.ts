@@ -13,44 +13,65 @@ import { DatabaseService } from 'src/service/DataBaseService';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'editStudent-dialog-component',
-    templateUrl: './editStudent-dialog.component.html',
-    styleUrls: ['./editStudent-dialog.component.scss'],
-    standalone: true,
-    imports: [
-        MatDialogModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatButtonModule,
-        MatInputModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatGridListModule,
-        MatRadioModule
-    ],providers: [DatePipe]
+  selector: 'editStudent-dialog-component',
+  templateUrl: './editStudent-dialog.component.html',
+  styleUrls: ['./editStudent-dialog.component.scss'],
+  standalone: true,
+  imports: [
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatGridListModule,
+    MatRadioModule
+  ],
+  providers: [DatePipe]
 })
 
+
 export class EditStudentDialogComponent {
-    @Output() dialogClosed = new EventEmitter<string>();
-    constructor(public dialogRef: MatDialogRef<EditStudentDialogComponent>,
-        private databaseService: DatabaseService,
-        private datePipe: DatePipe) { }
-    student: any = {};
-    editStudent() {
-      this.databaseService.ChangeGrades(this.student).subscribe(
-        (response) => {
-          console.log('Student edited successfully');
-          this.dialogRef.close();
-          location.reload();
-        },
-        (error) => {
-          console.error('Error editing student:', error);
-        }
-      );
-    }
-    
-    closeDialog() {
-      this.dialogRef.close();
-    }
+
+
+  @Output() dialogClosed = new EventEmitter<string>();
+
+  constructor(
+    public dialogRef: MatDialogRef<EditStudentDialogComponent>,
+    private databaseService: DatabaseService,
+    private datePipe: DatePipe
+  ) {}
+
+  student: any = {
+    StudentID: '12345678',
+    Grade: ''
+  };
+
+  editStudent() {
+    this.databaseService.ChangeGrades(this.student).subscribe(
+      (response) => {
+        console.log('Student edited successfully');
+        this.dialogRef.close();
+        location.reload();
+      },
+      (error) => {
+        console.error('Error editing student:', error);
+      }
+    );
   }
+  
+
+
+
+
+
+
+  
+  
+  closeDialog() {
+    this.dialogRef.close();
+  }
+  
+}

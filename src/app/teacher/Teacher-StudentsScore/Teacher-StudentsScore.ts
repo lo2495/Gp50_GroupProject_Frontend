@@ -12,6 +12,9 @@ import { EditStudentDialogComponent } from 'src/component/editStudent-Score-dial
     styleUrls: ['./Teacher-StudentsScore.scss']
 })
 export class TeacherStudentsScores {
+  rows: any[] = []; // Populate this array with your row data
+
+
 
         students: any[] = [];
         constructor(
@@ -67,7 +70,10 @@ export class TeacherStudentsScores {
         }
    
    
-        editStudent() {
+        editStudent(student: any) {
+        const studentID = student.StudentID;
+          const grade = student.Grade;
+          
           const dialogRef = this.dialog.open(EditStudentDialogComponent, {
             width: '60%',
             height: '50%'
