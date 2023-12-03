@@ -4,9 +4,11 @@
   <mat-grid-list cols="3" rowHeight="300px">
     <mat-grid-tile>
       <mat-radio-group [(ngModel)]="student.Grade" name="Grade" required>
-        <mat-label>StudentID</mat-label><br>
-        <input matInput [(ngModel)]="student.StudentID" name="StudentID" required>
-        <br>
+
+
+
+        <p>Selected Student ID: {{ setStudentID(2) }}</p>
+
         <br>
         <br>
         <mat-label>Grade</mat-label>
