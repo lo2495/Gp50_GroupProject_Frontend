@@ -1,33 +1,41 @@
 <h2 mat-dialog-title class="dialog-title">Edit Student</h2>
+
 <mat-dialog-content>
-    <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile>
-
-
-        <mat-radio-group [(ngModel)]="student.Grade" name="Grade" required>
-            <mat-label>Grade</mat-label>
-            <mat-radio-button value="A+">A+</mat-radio-button>
-            <mat-radio-button value="A">A</mat-radio-button>
-            <mat-radio-button value="A-">A-</mat-radio-button>
-          
-            <mat-radio-button value="B+">B+</mat-radio-button>
-            <mat-radio-button value="B">B</mat-radio-button>
-            <mat-radio-button value="B-">B-</mat-radio-button>
-       
-        </mat-radio-group>
-    
-</mat-grid-tile>
-
-
-
-
-
-
+  <mat-grid-list cols="3" rowHeight="350px">
+    <mat-grid-tile>
+      <mat-radio-group [(ngModel)]="student.Grade" name="Grade" required>
 
         
-    </mat-grid-list>
+       
+        <p>Selected Student ID: <span id="selectedStudentID" ></span></p>
+        
+        <br>
+        <mat-label>Grade</mat-label>
+        
+        
+        
+        <br>
+        <mat-radio-button value="A+">A+</mat-radio-button>
+        <mat-radio-button value="A">A</mat-radio-button>
+        <mat-radio-button value="A-">A-</mat-radio-button>
+        <br>
+        <mat-radio-button value="B+">B+</mat-radio-button>
+        <mat-radio-button value="B">B</mat-radio-button>
+        <mat-radio-button value="B-">B-</mat-radio-button>
+        <br>
+        <mat-radio-button value="C+">C+</mat-radio-button>
+        <mat-radio-button value="C">C</mat-radio-button>
+        <mat-radio-button value="C-">C-</mat-radio-button>
+        <br>
+        <br>
+        <mat-radio-button value="F"><span style="color: red;">F</span></mat-radio-button>
+        <br>
+      </mat-radio-group>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-dialog-content>
+
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button color="primary" (click)="editStudent()" [mat-dialog-close]="student">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button color="primary" (click)=" updateStudentID(); editStudent()" [mat-dialog-close]="student">Save</button>
 </mat-dialog-actions>

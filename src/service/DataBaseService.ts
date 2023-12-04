@@ -25,9 +25,9 @@ export class DatabaseService {
   }
 
 
-  ChangeGrades(student: any): Observable<any> {
+  ChangeGrades(student: any ): Observable<any> {
     const url = `${this.baseUrl}/api/EditGrade`;
-    return this.http.post<any>(url, student);
+    return this.http.post<any>(url, student,);
   }
 
 

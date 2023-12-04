@@ -42,6 +42,7 @@ import { TeacherProfilePage } from './teacher/Teacher-Profile/Teacher-Profile';
 import { StudentProfilePage } from './student/Student-Profile/Student-Profile';
 import { ClassDetailsPage } from './teacher/Teacher-Class-Detail/Teacher-Class-Detail';
 import { StudentMyClass } from './student/Student-MyClass/Student-MyClass';
+import { ConsoleLogComponent } from './console-log/console-log.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { StudentMyClass } from './student/Student-MyClass/Student-MyClass';
     TeacherProfilePage,
     StudentProfilePage,
     ClassDetailsPage,
-    StudentMyClass
+    StudentMyClass,
+    ConsoleLogComponent
   ],
   imports: [
     BrowserModule,
