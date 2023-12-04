@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Output, OnInit , Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
@@ -10,7 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { DatabaseService } from 'src/service/DataBaseService';
-import { DatePipe } from '@angular/common';
+import { DatePipe , CommonModule } from '@angular/common';
+
 
 
 
@@ -29,14 +30,15 @@ import { DatePipe } from '@angular/common';
     MatSelectModule,
     MatDatepickerModule,
     MatGridListModule,
-    MatRadioModule
+    MatRadioModule,
+    CommonModule
   ],
   providers: [DatePipe]
 })
 
 
 export class EditStudentDialogComponent {
-
+  consoleLogMessages: string[] = [];
 
   @Output() dialogClosed = new EventEmitter<string>();
 
@@ -45,6 +47,7 @@ export class EditStudentDialogComponent {
     private databaseService: DatabaseService,
     private datePipe: DatePipe,
     public cdr: ChangeDetectorRef,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   student: any = {
@@ -68,37 +71,17 @@ export class EditStudentDialogComponent {
   WHATINEED: string = '';
   OUTPUT: string = this.WHATINEED;
   
-
-
-  ngOnInit(): void {
-  }
-  setStudentID(row: number): any {
-    const selectedStudentID = this.getRowStudentID(row);
-
-    console.log('Selected Student ID:', selectedStudentID, row);
-    const rownum : any = selectedStudentID;
-    
-    return  rownum ;
-    
-  }
  
 
-  private getRowStudentID(row: number): string {
-    const rowElement = document.getElementById(`row${row}`);
-    const studentIDCell = rowElement?.querySelector('.StudentID');
-    return studentIDCell?.textContent || '';
+  ngOnInit() : void {
+   
   }
-
-
-
-
-
-
-
-
-
-
-
+  updateStudentID() {
+    const spanElement = document.getElementById("selectedStudentID");
+    if (spanElement) {
+      this.student.StudentID = spanElement.textContent || "";
+    }
+  }
 
 
   closeDialog() {

@@ -1,17 +1,19 @@
 <h2 mat-dialog-title class="dialog-title">Edit Student</h2>
 
 <mat-dialog-content>
-  <mat-grid-list cols="3" rowHeight="300px">
+  <mat-grid-list cols="3" rowHeight="350px">
     <mat-grid-tile>
       <mat-radio-group [(ngModel)]="student.Grade" name="Grade" required>
 
-
-
-        <p>Selected Student ID: {{ setStudentID(2) }}</p>
-
-        <br>
+        
+       
+        <p>Selected Student ID: <span id="selectedStudentID" ></span></p>
+        
         <br>
         <mat-label>Grade</mat-label>
+        
+        
+        
         <br>
         <mat-radio-button value="A+">A+</mat-radio-button>
         <mat-radio-button value="A">A</mat-radio-button>
@@ -35,5 +37,5 @@
 
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button color="primary" (click)="editStudent()" [mat-dialog-close]="student">Save</button>
+  <button mat-button color="primary" (click)=" updateStudentID(); editStudent()" [mat-dialog-close]="student">Save</button>
 </mat-dialog-actions>

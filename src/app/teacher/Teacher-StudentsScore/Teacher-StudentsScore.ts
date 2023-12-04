@@ -6,6 +6,9 @@ import { DeleteConfirmDialogComponent } from 'src/component/DeleteConfirm-dialog
 import { EditStudentDialogComponent } from 'src/component/editStudent-Score-dialog-component/editStudent-dialog.component';
 
 
+
+
+
 @Component({
   selector: 'app-teacher-studentsscore',
   templateUrl: './Teacher-StudentsScore.html',
@@ -19,8 +22,13 @@ export class TeacherStudentsScores {
   students: any[] = [];
   constructor(
     private http: HttpClient,
+   
     private dialog: MatDialog) { }
-  displayedColumns: string[] = ['StudentID', 'Name', 'StudentEmail', 'Major', 'Grade', 'Edit', 'Del'];
+
+  
+
+    
+  displayedColumns: string[] = [ 'StudentID', 'Name', 'StudentEmail', 'Major', 'Grade', 'Edit', 'Del'];
   ngOnInit(): void {
     this.fetchStudents();
   }
@@ -86,9 +94,11 @@ export class TeacherStudentsScores {
 
   setStudentID(row: number): string {
     const selectedStudentID = this.getRowStudentID(row);
-    this.WHATINEED = selectedStudentID;
-    console.log('tss Selected Student ID:', this.WHATINEED , row);
-    return selectedStudentID
+    const selectedStudentIDElement = document.getElementById('selectedStudentID');
+    if (selectedStudentIDElement) {
+      selectedStudentIDElement.innerText = selectedStudentID;
+    }
+    return selectedStudentID;
   }
   private getRowStudentID(row: number): string {
     const rowElement = document.getElementById(`row${row}`);

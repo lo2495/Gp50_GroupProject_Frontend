@@ -38,6 +38,7 @@ import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
 import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
 import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
+import { ConsoleLogComponent } from './console-log/console-log.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
     StudentHome,
     StudentAcademicResults,
     AdminStudentPage,
-    AdminTeacherPage
+    AdminTeacherPage,
+    ConsoleLogComponent
   ],
   imports: [
     BrowserModule,
