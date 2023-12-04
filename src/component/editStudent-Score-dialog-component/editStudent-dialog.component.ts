@@ -39,7 +39,6 @@ export class EditStudentDialogComponent {
     student: any = {};
     editStudent() {
         
-      
           this.databaseService.ChangeGrades(this.student).subscribe(
             (response) => {
               console.log('student editted successfully');

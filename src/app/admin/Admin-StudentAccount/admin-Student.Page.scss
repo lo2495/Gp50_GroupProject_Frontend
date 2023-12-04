@@ -1,8 +1,11 @@
 .container {
     display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: lightgrey;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.side-nav {
+    width: 200px;
 }
 
 .content-wrapper {
@@ -12,8 +15,30 @@
 
 .table-container {
     position: relative;
-    top: 20px; /* Adjust the top position according to your needs */
+    top: 20px;
     left: 100px;
+}
+.mat-elevation-z8 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.student-table th {
+    font-weight: bold;
 }
 
 .add-student-button {

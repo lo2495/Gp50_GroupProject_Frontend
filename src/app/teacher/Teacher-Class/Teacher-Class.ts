@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Class } from 'src/app/Model/ClassInterface';
 import { AddClassDialogComponent } from 'src/component/addClass-dialog-component/addClass-dialog.component';
 @Component({
   selector: 'app-teacher-class',
@@ -8,16 +10,17 @@ import { AddClassDialogComponent } from 'src/component/addClass-dialog-component
   styleUrls: ['./Teacher-Class.scss']
 })
 export class TeacherClass {
-  classes: any[] = [];
-  displayedColumns: string[] = ['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName'];
+
+  classes: Class[] = [];
   constructor(private http: HttpClient,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private router: Router) { }
   ngOnInit(): void {
     this.fetchClasses();
   }
   fetchClasses() {
-    this.http.get('http://localhost:5000/api/classes').subscribe(
-      (response: any) => {
+    this.http.get<Class[]>('http://localhost:5000/api/classes').subscribe(
+      (response: Class[]) => {
         this.classes = response;
       },
       (error: any) => {
@@ -34,7 +37,12 @@ export class TeacherClass {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+  
   deleteClasses(classes:any){
 
   }
+
+  showClassDetails(classes: Class) {
+    this.router.navigate(['/class-details', classes.classid]); 
+}
 }

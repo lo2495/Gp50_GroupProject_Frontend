@@ -1,0 +1,54 @@
+<header-component></header-component>
+<div class="container">
+  <div class="side-nav">
+    <teacher-sidenav-component></teacher-sidenav-component>
+  </div>
+  <div class="content-wrapper">
+    <div class="flex-container">
+      <mat-card class="profile-card">
+        <mat-card-header>
+          <mat-card-title>Teacher Profile</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="profile-details">
+            <div class="profile-field">
+              <span class="field-label">teacher ID:</span>
+              <input [(ngModel)]="teacherProfile!.TeacherID" class="field-value" />
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Name:</span>
+              <input [(ngModel)]="teacherProfile!.Name" class="field-value" />
+            </div>
+            <div class="profile-field">
+              <span class="field-label">teacher Email:</span>
+              <input [(ngModel)]="teacherProfile!.Email" class="field-value" />
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Gender:</span>
+              <input [(ngModel)]="teacherProfile!.Gender" class="field-value" />
+            </div>
+            <div class="profile-field">
+                <span class="field-label">Employment Date:</span>
+                <input type="text" [(ngModel)]="teacherProfile!.EmploymentDate" class="field-value" />
+              </div>
+            <div class="profile-field">
+              <span class="field-label">Phone Number:</span>
+              <input [(ngModel)]="teacherProfile!.PhoneNumber" class="field-value" />
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Department:</span>
+              <input [(ngModel)]="teacherProfile!.Department" class="field-value" />
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Designation:</span>
+              <input [(ngModel)]="teacherProfile!.Designation" class="field-value" />
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="updateProfile()" mat-raised-button color="primary">Update Profile</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

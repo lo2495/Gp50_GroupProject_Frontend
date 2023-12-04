@@ -8,27 +8,27 @@
     width: 200px;
 }
 
-.mat-elevation-z8 {
-    background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-}
-
-.teacher-table {
+.class-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.teacher-table th,
-.teacher-table td {
+.class-table th,
+.class-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #dddddd;
 }
 
-.teacher-table th {
+.class-table th {
     font-weight: bold;
+}
+
+.mat-elevation-z8 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
 .content-wrapper {
@@ -41,8 +41,3 @@
     top: 20px;
     left: 100px;
 }
-
-.add-teacher-button {
-    position: relative;
-    margin: 20px;
-  }

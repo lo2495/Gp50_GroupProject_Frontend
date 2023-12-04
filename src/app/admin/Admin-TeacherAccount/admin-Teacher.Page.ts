@@ -15,8 +15,7 @@ export class AdminTeacherPage {
   constructor(
     private http: HttpClient,
     private dialog: MatDialog) { }
-  displayedColumns: string[] = ['TeacherID', 'Name', 'Email', 'Gender', 'DateOfEmployment', 'PhoneNumber', 'Department', 'Designation', 'Actions'];
-
+    
   ngOnInit(): void {
     this.fetchTeachers();
   }

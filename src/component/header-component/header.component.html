@@ -4,7 +4,7 @@
   </button>
   <span>My Moodle</span>
   <div class="spacer"></div>
-  <span class="user-name">{{ userName }}</span>
+  <span class="user-name">{{ getStoredUserName() }}</span>
   <button mat-icon-button class="user-icon" matTooltip="User Account" [matMenuTriggerFor]="userAccountMenu">
     <mat-icon>account_circle</mat-icon>
     </button>

@@ -38,6 +38,10 @@ import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
 import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
 import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
+import { TeacherProfilePage } from './teacher/Teacher-Profile/Teacher-Profile';
+import { StudentProfilePage } from './student/Student-Profile/Student-Profile';
+import { ClassDetailsPage } from './teacher/Teacher-Class-Detail/Teacher-Class-Detail';
+import { StudentMyClass } from './student/Student-MyClass/Student-MyClass';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,11 @@ import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
     StudentHome,
     StudentAcademicResults,
     AdminStudentPage,
-    AdminTeacherPage
+    AdminTeacherPage,
+    TeacherProfilePage,
+    StudentProfilePage,
+    ClassDetailsPage,
+    StudentMyClass
   ],
   imports: [
     BrowserModule,

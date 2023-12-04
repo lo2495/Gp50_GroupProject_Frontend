@@ -11,9 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./Teacher-Home.scss']
 })
 export class TeacherHome {
-
-
-
   totalStudents!: number;
   totalTeachers!: number;
   constructor(

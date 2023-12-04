@@ -1,11 +1,13 @@
 <header-component></header-component>
 <div class="container">
-    <div class="content-wrapper">
+    <div class="side-nav">
         <admin-sidenav-component></admin-sidenav-component>
+    </div>
+    <div class="content-wrapper">
         <div class="table-container">
             <button mat-raised-button color="primary" class="add-student-button" (click)="addStudent()"><mat-icon>add</mat-icon>   Add Student</button>
-            <table mat-table [dataSource]="students" class="mat-elevation-z8">
-                <!-- Column definitions -->
+            <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="students" class="student-table">
                 <ng-container matColumnDef="StudentID">
                     <th mat-header-cell *matHeaderCellDef>StudentID</th>
                     <td mat-cell *matCellDef="let student">{{ student.StudentID }}</td>
@@ -54,10 +56,10 @@
                       </button>
                     </td>
                   </ng-container>
-                <!-- Table rows -->
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let student; columns: displayedColumns;"></tr>
             </table>
+            </div>
         </div>
     </div>
 </div>

@@ -2,10 +2,14 @@
 
 .container {
     display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: lightgrey;
+    flex-direction: row;
+    height: 100vh;
 }
+
+.side-nav {
+    width: 200px;
+}
+
 
 .content-wrapper {
     flex-grow: 1;

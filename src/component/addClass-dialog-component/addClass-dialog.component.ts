@@ -12,6 +12,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { DatabaseService } from 'src/service/DataBaseService';
 import { DatePipe } from '@angular/common';
 import { UserService } from 'src/app/shared/user.service.service';
+import { UserData } from 'src/app/Model/UserInterface';
 
 @Component({
   selector: 'addClass-dialog-component',
@@ -39,12 +40,14 @@ export class AddClassDialogComponent {
     private databaseService: DatabaseService,
     private datePipe: DatePipe,
     private userService: UserService) { }
-    userName!: string;
+    userData: UserData | undefined;
+  userName!: string;
   Class: any = {};
   ngOnInit(): void {
     this.userName = localStorage.getItem('userName') ?? '';
     if (!this.userName) {
-      this.userName = this.userService.getUserName();
+      this.userData = this.userService.getUserData();
+      this.userName = this.userData!.Name;
       localStorage.setItem('userName', this.userName);
     }
   }
@@ -65,7 +68,7 @@ export class AddClassDialogComponent {
         console.error('Error adding Class:', error);
       }
     );
-  }  
+  }
   closeDialog() {
     this.dialogRef.close();
   }

@@ -10,6 +10,10 @@ import { TeacherHome } from './teacher/Teacher-Home/Teacher-Home';
 import { TeacherStudentsRecord } from './teacher/Teacher-StudentsRecord/Teacher-StudentsRecord';
 import { TeacherStudentsScores } from './teacher/Teacher-StudentsScore/Teacher-StudentsScore';
 import { TeacherClass } from './teacher/Teacher-Class/Teacher-Class';
+import { StudentProfilePage } from './student/Student-Profile/Student-Profile';
+import { TeacherProfilePage } from './teacher/Teacher-Profile/Teacher-Profile';
+import { ClassDetailsPage } from './teacher/Teacher-Class-Detail/Teacher-Class-Detail';
+import { StudentMyClass } from './student/Student-MyClass/Student-MyClass';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,9 +25,11 @@ const routes: Routes = [
   { path: 'teacher-home', component: TeacherHome },
   { path: 'teacher-records', component: TeacherStudentsRecord},
   { path: 'teacher-scores', component: TeacherStudentsScores },
-  { path: 'teacher-class', component: TeacherClass}
-
-
+  { path: 'teacher-class', component: TeacherClass},
+  { path: 'student-profile', component: StudentProfilePage},
+  { path: 'teacher-profile', component: TeacherProfilePage},
+  { path: 'class-details/:id', component: ClassDetailsPage },
+  { path: 'student-myclass', component: StudentMyClass },
 ];
 
 @NgModule({

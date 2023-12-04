@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service.service';
+import { UserData } from 'src/app/Model/UserInterface';
+
 interface LoginResponse {
   success: boolean;
-  userName: string;
+  userData: UserData;
   redirectUrl: string;
   message: string;
-  Name: string;
 }
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent {
     this.http.post<LoginResponse>('http://localhost:5000/api/login', this.form).subscribe(
       (response) => {
         if (response.success) {
-          this.userService.setUserName(response.Name);
+          this.userService.setUserData(response.userData)
           this.router.navigate([response.redirectUrl]);
         } else {
           this.message = response.message;

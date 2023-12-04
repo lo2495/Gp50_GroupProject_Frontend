@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { UserService } from 'src/app/shared/user.service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserData } from 'src/app/Model/UserInterface';
+
 
 @Component({
   selector: 'header-component',
@@ -24,6 +26,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderComponent {
   @Output() logout: EventEmitter<any> = new EventEmitter<any>();
+  userData: UserData | undefined;
   userName: string | undefined;
 
   constructor(
@@ -34,11 +37,20 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit(): void {
-    this.userName = localStorage.getItem('userName') ?? ''; 
-    if (!this.userName) {
-      this.userName = this.userService.getUserName();
-      localStorage.setItem('userName', this.userName); 
+    this.userData = this.userService.getUserData();
+  
+    if (this.userData) {
+      localStorage.setItem('userData', JSON.stringify(this.userData));
+    } else {
+      const storedUserData = localStorage.getItem('userData');
+      this.userData = storedUserData ? JSON.parse(storedUserData) : undefined;
     }
+  }
+
+  getStoredUserName(): string {
+    const storedUserData = localStorage.getItem('userData');
+    const userData = storedUserData ? JSON.parse(storedUserData) : undefined;
+    return userData ? userData.Name : '';
   }
 
   toggleSidebar() {
@@ -46,7 +58,14 @@ export class HeaderComponent {
   }
 
   openProfile() {
-    // Implement the functionality to open the user's profile
+    if (this.userData?.UserRole == "student")
+    {
+      this.router.navigate(['/student-profile']);
+    }else if (this.userData?.UserRole == "teacher")
+    {
+      this.router.navigate(['/teacher-profile']);
+    }
+
   }
 
   onLogout() {
