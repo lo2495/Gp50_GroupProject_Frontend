@@ -1,2 +1,29 @@
 <header-component></header-component>
-<student-sidenav-component></student-sidenav-component>
+<div class="container">
+    <div class="side-nav">
+        <student-sidenav-component></student-sidenav-component>
+    </div>
+    <div class="content-wrapper">
+        <div class="flex-container">
+            <h2 class="card-title">Student Academic Results</h2>
+            <div class="mat-elevation-z8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let course of studentdetail?.Grade">
+                            <tr>
+                                <td>{{ course.CourseName }}</td>
+                                <td>{{ course.Grade }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,20 +1,25 @@
 .container {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
 
+.side-nav {
+  width: 200px;
+}
+
+
 .content-wrapper {
-    flex-grow: 1;
-    display: flex;
+  flex-grow: 1;
+  display: flex;
 }
 
 .table-container {
-    position: relative;
-    top: 20px; /* Adjust the top position according to your needs */
-    left: 100px;
+  position: relative;
+  top: 20px;
+  left: 100px;
 }
+
 
 .add-student-button {
     position: relative;

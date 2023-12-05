@@ -1,0 +1,88 @@
+<header-component></header-component>
+
+<div class="container">
+  <div class="side-nav">
+    <teacher-sidenav-component></teacher-sidenav-component>
+  </div>
+
+  <div class="content-wrapper">
+    <mat-card *ngIf="studentdetails">
+      <mat-card-header>
+        <div class="student-details">
+          <h1>Student Details</h1>
+          <div class="student-info">
+            <div class="info-row">
+              <span class="info-label">Student ID:</span>
+              <span class="info-value">{{ studentdetails.StudentID }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Student Name:</span>
+              <span class="info-value">{{ studentdetails.Name }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Student Email:</span>
+              <span class="info-value">{{ studentdetails.StudentEmail }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Gender:</span>
+              <span class="info-value">{{ studentdetails.Gender }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Birth Date:</span>
+              <span class="info-value">{{ studentdetails.BirthDate }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Phone Number:</span>
+              <span class="info-value">{{ studentdetails.PhoneNumber }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Status:</span>
+              <span class="info-value">{{ studentdetails.Status }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Major:</span>
+              <span class="info-value">{{ studentdetails.Major }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="studentdetails.Grade" class="score-table">
+            <ng-container matColumnDef="courseName">
+              <th mat-header-cell *matHeaderCellDef> Course Name </th>
+              <td mat-cell *matCellDef="let grade"> {{ grade.CourseName }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="grade">
+                <th mat-header-cell *matHeaderCellDef> Grade </th>
+                <td mat-cell *matCellDef="let grade">
+                  <div *ngIf="!grade.isEditing">
+                    {{ grade.Grade }}
+                    <button mat-icon-button color="primary" (click)="grade.isEditing = true">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                  </div>
+                  <div *ngIf="grade.isEditing">
+                    <select [(ngModel)]="grade.Grade">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="F">F</option>
+                    </select>
+                    <button mat-icon-button color="primary" (click)="saveGrade(grade)">
+                      <mat-icon>save</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="['courseName', 'grade']"></tr>
+              <tr mat-row *matRowDef="let row; columns: ['courseName', 'grade'];"></tr>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

@@ -6,8 +6,13 @@ export interface UserData {
     Name: string;
 }
 
+export interface CourseGrade {
+    CourseName: string;
+    Grade: string;
+}
+
 export interface StudentProfile extends UserData {
-    studentID: string;
+    StudentID: string;
     Name:string;
     StudentEmail:string;
     Gender:string;
@@ -15,6 +20,7 @@ export interface StudentProfile extends UserData {
     PhoneNumber:string;
     Status:string;
     Major: string;
+    Grade: { CourseName: string, Grade: string }[];
   }
   
   export interface TeacherProfile extends UserData {

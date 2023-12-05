@@ -8,45 +8,64 @@
       <mat-card class="profile-card">
         <mat-card-header>
           <mat-card-title>Teacher Profile</mat-card-title>
+          <button mat-icon-button (click)="toggleEditMode()">
+            <mat-icon>edit</mat-icon>
+          </button>
         </mat-card-header>
         <mat-card-content>
           <div class="profile-details">
             <div class="profile-field">
-              <span class="field-label">teacher ID:</span>
-              <input [(ngModel)]="teacherProfile!.TeacherID" class="field-value" />
+              <span class="field-label">Teacher ID:</span>
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.TeacherID" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
               <span class="field-label">Name:</span>
-              <input [(ngModel)]="teacherProfile!.Name" class="field-value" />
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.Name" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
-              <span class="field-label">teacher Email:</span>
-              <input [(ngModel)]="teacherProfile!.Email" class="field-value" />
+              <span class="field-label">Teacher Email:</span>
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.Email" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
               <span class="field-label">Gender:</span>
-              <input [(ngModel)]="teacherProfile!.Gender" class="field-value" />
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.Gender" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
-                <span class="field-label">Employment Date:</span>
-                <input type="text" [(ngModel)]="teacherProfile!.EmploymentDate" class="field-value" />
-              </div>
+              <span class="field-label">Employment Date:</span>
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.EmploymentDate" [disabled]="!isEditMode">
+              </span>
+            </div>
             <div class="profile-field">
               <span class="field-label">Phone Number:</span>
-              <input [(ngModel)]="teacherProfile!.PhoneNumber" class="field-value" />
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.PhoneNumber" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
               <span class="field-label">Department:</span>
-              <input [(ngModel)]="teacherProfile!.Department" class="field-value" />
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.Department" [disabled]="!isEditMode">
+              </span>
             </div>
             <div class="profile-field">
               <span class="field-label">Designation:</span>
-              <input [(ngModel)]="teacherProfile!.Designation" class="field-value" />
+              <span class="field-value">
+                <input [(ngModel)]="TeacherProfile.Designation" [disabled]="!isEditMode">
+              </span>
             </div>
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button (click)="updateProfile()" mat-raised-button color="primary">Update Profile</button>
+          <button mat-raised-button color="primary" (click)="updateProfile()" [disabled]="!isEditMode">Save</button>
         </mat-card-actions>
       </mat-card>
     </div>

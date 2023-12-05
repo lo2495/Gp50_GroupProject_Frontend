@@ -9,39 +9,24 @@ import { TeacherProfile, UserData } from 'src/app/Model/UserInterface';
 })
 export class TeacherProfilePage implements OnInit {
   userData: UserData | undefined;
-  teacherProfile: TeacherProfile | undefined;
+  TeacherProfile!: TeacherProfile;
+  isEditMode: boolean = false;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.userData = this.userService.getUserData();
-    const storedProfile = localStorage.getItem('teacherProfile');
-    if (storedProfile) {
-      this.teacherProfile = JSON.parse(storedProfile);
-    } else {
-      this.userService.getUserProfile(this.userData.LoginID, this.userData.UserRole).subscribe(
-          (response: any) => {
-            if (response.success) {
-              this.teacherProfile = response.userProfile as TeacherProfile;
-              localStorage.setItem('teacherProfile',JSON.stringify(this.teacherProfile));
-            } else {
-              console.log(response.message);
-            }
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-    }
- 
+    const teacherProfileString = localStorage.getItem('TeacherProfile');
+    this.TeacherProfile = JSON.parse(teacherProfileString!);
+    console.log(this.TeacherProfile)
 }
 
 updateProfile(): void {
-    this.userService.updateTeacherProfile(this.teacherProfile!).subscribe(
+    this.userService.updateTeacherProfile(this.TeacherProfile!).subscribe(
       (response: any) => {
         if (response.success) {
           console.log('Profile updated successfully');
-          localStorage.setItem('teacherProfile', JSON.stringify(this.teacherProfile));
+          localStorage.setItem('TeacherProfile', JSON.stringify(this.TeacherProfile));
         } else {
           console.log(response.message);
         }
@@ -50,5 +35,13 @@ updateProfile(): void {
         console.log(error);
       }
     );
+  }
+
+  toggleEditMode(): void {
+    this.isEditMode = !this.isEditMode;
+    if (!this.isEditMode) {
+      const teacherProfileString = localStorage.getItem('TeacherProfile');
+      this.TeacherProfile = JSON.parse(teacherProfileString!);
+    }
   }
 }

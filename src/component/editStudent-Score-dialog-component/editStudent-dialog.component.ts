@@ -12,9 +12,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { DatabaseService } from 'src/service/DataBaseService';
 import { DatePipe , CommonModule } from '@angular/common';
 
-
-
-
 @Component({
   selector: 'editStudent-dialog-component',
   templateUrl: './editStudent-dialog.component.html',
@@ -36,12 +33,9 @@ import { DatePipe , CommonModule } from '@angular/common';
   providers: [DatePipe]
 })
 
-
 export class EditStudentDialogComponent {
   consoleLogMessages: string[] = [];
-
   @Output() dialogClosed = new EventEmitter<string>();
-
   constructor(
     public dialogRef: MatDialogRef<EditStudentDialogComponent>,
     private databaseService: DatabaseService,
@@ -71,8 +65,6 @@ export class EditStudentDialogComponent {
   WHATINEED: string = '';
   OUTPUT: string = this.WHATINEED;
   
- 
-
   ngOnInit() : void {
    
   }
@@ -82,7 +74,6 @@ export class EditStudentDialogComponent {
       this.student.StudentID = spanElement.textContent || "";
     }
   }
-
 
   closeDialog() {
     this.dialogRef.close();

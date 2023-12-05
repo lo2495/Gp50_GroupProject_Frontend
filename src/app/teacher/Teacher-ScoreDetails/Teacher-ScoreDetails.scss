@@ -15,7 +15,7 @@
   }
   
   /* Class Details */
-  .class-details {
+  .student-details {
     margin-top: 20px;
   }
   
@@ -34,23 +34,28 @@
     overflow: auto;
   }
   
-  .mat-table {
+  .score-table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .mat-table th,
-  .mat-table td {
+  .score-table th,
+  .score-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #dddddd;
   }
   
-  .mat-table th {
+  .score-table th {
     font-weight: bold;
   }
   
-  .class-info {
+  .status-dropdown,
+  .remarks-input {
+    width: 100%;
+  }
+  
+  .student-info {
     margin-bottom: 20px;
   }
   
