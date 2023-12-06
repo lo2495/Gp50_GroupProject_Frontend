@@ -5,49 +5,43 @@
     </div>
     <div class="content-wrapper">
         <div class="table-container">
-            <button mat-raised-button color="primary" class="add-teacher-button" (click)="addTeacher()"><mat-icon>add</mat-icon>   Add Teacher</button>
-            <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="teachers" class="teacher-table">
+            <div class="header-wrapper">
+                <h1 class="header-title"><mat-icon>school</mat-icon> Teachers Accounts</h1>
+                <button mat-raised-button color="primary" class="add-teacher-button" (click)="addTeacher()"><mat-icon>add</mat-icon>   Add Teacher</button>
+              </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <ng-container matColumnDef="TeacherID">
                     <th mat-header-cell *matHeaderCellDef>TeacherID</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.TeacherID }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Name">
                     <th mat-header-cell *matHeaderCellDef>Name</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.Name }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Email">
                     <th mat-header-cell *matHeaderCellDef>Email</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.Email }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Gender">
                     <th mat-header-cell *matHeaderCellDef>Gender</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.Gender }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="DateOfEmployment">
                     <th mat-header-cell *matHeaderCellDef>Date of Employment</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.EmploymentDate | date: 'yyyy-MM-dd' }}</td>
                   </ng-container>
-
                 <ng-container matColumnDef="PhoneNumber">
                     <th mat-header-cell *matHeaderCellDef>Phone Number</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.PhoneNumber }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Department">
                     <th mat-header-cell *matHeaderCellDef>Department</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.Department }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Designation">
                     <th mat-header-cell *matHeaderCellDef>Designation</th>
                     <td mat-cell *matCellDef="let teacher">{{ teacher.Designation }}</td>
                 </ng-container>
-
                 <ng-container matColumnDef="Actions">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let teacher">
@@ -59,7 +53,7 @@
                 <tr mat-header-row *matHeaderRowDef="['TeacherID', 'Name', 'Email', 'Gender', 'DateOfEmployment', 'PhoneNumber', 'Department', 'Designation', 'Actions']"></tr>
                 <tr mat-row *matRowDef="let teacher; columns: ['TeacherID', 'Name', 'Email', 'Gender', 'DateOfEmployment', 'PhoneNumber', 'Department', 'Designation', 'Actions']"></tr>
             </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
             </div>
         </div>
     </div>
-</div>

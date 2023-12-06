@@ -1,76 +1,73 @@
-/* Global Styles */
 .container {
     display: flex;
     flex-direction: row;
     height: 100vh;
-  }
-  
-  .side-nav {
+}
+
+.side-nav {
     width: 200px;
-  }
-  
-  .content-wrapper {
+}
+
+.content-wrapper {
     flex-grow: 1;
     padding: 20px;
-  }
-  
-  /* Class Details */
-  .class-details {
+}
+
+.class-details {
     margin-top: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 20px;
-  }
-  
-  h2 {
+}
+
+h2 {
     margin-bottom: 10px;
-  }
-  
-  .mat-elevation-z8 {
+}
+
+.mat-elevation-z8 {
     background-color: #ffffff;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: auto;
-  }
-  
-  .mat-table {
+}
+
+.mat-table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  .mat-table th,
-  .mat-table td {
+}
+
+.mat-table th,
+.mat-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #dddddd;
-  }
-  
-  .mat-table th {
+}
+
+.mat-table th {
     font-weight: bold;
-  }
-  
-  .class-info {
+}
+
+.class-info {
     margin-bottom: 20px;
-  }
-  
-  .info-row {
+}
+
+.info-row {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-  }
-  
-  .info-label {
+}
+
+.info-label {
     font-weight: bold;
     width: 120px;
-  }
-  
-  .info-value {
+}
+
+.info-value {
     margin-left: 10px;
-  }
-  
-  /* Button Styles */
-  button {
+}
+
+button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 14px;
@@ -81,28 +78,28 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: transparent;
-  }
-  
-  button.primary {
+}
+
+button.primary {
     background-color: transparent;
     color: #007bff;
-  }
-  
-  button.primary:hover {
+}
+
+button.primary:hover {
     background-color: transparent;
     color: #0056b3;
-  }
-  
-  button.danger {
+}
+
+button.danger {
     background-color: transparent;
     color: #dc3545;
-  }
-  
-  button.danger:hover {
+}
+
+button.danger:hover {
     background-color: transparent;
     color: #c82333;
-  }
+}

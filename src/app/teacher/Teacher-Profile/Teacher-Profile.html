@@ -1,73 +1,74 @@
 <header-component></header-component>
 <div class="container">
-  <div class="side-nav">
-    <teacher-sidenav-component></teacher-sidenav-component>
-  </div>
-  <div class="content-wrapper">
-    <div class="flex-container">
-      <mat-card class="profile-card">
-        <mat-card-header>
-          <mat-card-title>Teacher Profile</mat-card-title>
-          <button mat-icon-button (click)="toggleEditMode()">
-            <mat-icon>edit</mat-icon>
-          </button>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="profile-details">
-            <div class="profile-field">
-              <span class="field-label">Teacher ID:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.TeacherID" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Name:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.Name" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Teacher Email:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.Email" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Gender:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.Gender" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Employment Date:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.EmploymentDate" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Phone Number:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.PhoneNumber" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Department:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.Department" [disabled]="!isEditMode">
-              </span>
-            </div>
-            <div class="profile-field">
-              <span class="field-label">Designation:</span>
-              <span class="field-value">
-                <input [(ngModel)]="TeacherProfile.Designation" [disabled]="!isEditMode">
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="updateProfile()" [disabled]="!isEditMode">Save</button>
-        </mat-card-actions>
-      </mat-card>
+    <div class="side-nav">
+        <teacher-sidenav-component></teacher-sidenav-component>
     </div>
-  </div>
+    <div class="content-wrapper">
+        <div class="flex-container">
+            <mat-card class="profile-card">
+                <mat-card-header>
+                    <mat-card-title>Teacher Profile</mat-card-title>
+                    <button mat-icon-button (click)="toggleEditMode()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="profile-details">
+                        <div class="profile-field">
+                            <span class="field-label">Teacher ID:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.TeacherID" [disabled]="true">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Name:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.Name" [disabled]="!isEditMode">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Teacher Email:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.Email" [disabled]="true">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Gender:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.Gender" [disabled]="!isEditMode">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Employment Date:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.EmploymentDate" [disabled]="true">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Phone Number:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.PhoneNumber" [disabled]="!isEditMode">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Department:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.Department" [disabled]="true">
+                            </span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Designation:</span>
+                            <span class="field-value">
+                                <input [(ngModel)]="TeacherProfile.Designation" [disabled]="!isEditMode">
+                            </span>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="updateProfile()"
+                        [disabled]="!isEditMode">Save</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
 </div>

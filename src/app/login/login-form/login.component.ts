@@ -42,7 +42,7 @@ export class LoginComponent {
               }
             );
           }
-          else if (response.userData.UserRole == "teacher"){
+          else if (response.userData.UserRole == "teacher") {
             this.userService.getUserProfile(response.userData.LoginID, response.userData.UserRole).subscribe(
               (Profileresponse: any) => {
                 localStorage.setItem('TeacherProfile', JSON.stringify(Profileresponse));

@@ -2,45 +2,45 @@
     display: flex;
     height: 100vh;
     background-color: lightgray;
-  }
-  
-  .side-nav {
+}
+
+.side-nav {
     width: 200px;
-  }
-  
-  .content-wrapper {
+}
+
+.content-wrapper {
     flex: 1;
     padding: 20px;
-  }
-  
-  .card-title {
+}
+
+.card-title {
     font-size: 24px;
     margin-bottom: 20px;
-  }
-  
-  .mat-elevation-z8 {
+}
+
+.mat-elevation-z8 {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 4px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table {
+}
+
+.table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  .table th,
-  .table td {
+}
+
+.table th,
+.table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-  }
-  
-  .table th {
+}
+
+.table th {
     background-color: #f0f0f0;
-  }
-  
-  .table tr:hover {
+}
+
+.table tr:hover {
     background-color: #f9f9f9;
-  }
+}

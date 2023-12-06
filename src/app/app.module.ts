@@ -21,6 +21,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AsyncPipe } from '@angular/common';
 import { DatabaseService } from 'src/service/DataBaseService';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { AdminHomePage } from './admin/Admin-Home/admin-Home.Page';
@@ -87,6 +88,7 @@ import { ScoreDetailsPage } from './teacher/Teacher-ScoreDetails/Teacher-ScoreDe
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
+    MatPaginatorModule,
     HeaderComponent,
     AdminSideNavComponent,
     StudentSideNavComponent,

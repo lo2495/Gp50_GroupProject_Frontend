@@ -1,33 +1,53 @@
 .container {
   display: flex;
-  flex-direction: row;
   height: 100vh;
+}
+
+.mat-elevation-z8 {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: auto;
 }
 
 .side-nav {
   width: 200px;
+  background-color: #f5f5f5;
 }
-
 
 .content-wrapper {
   flex-grow: 1;
-  display: flex;
+  padding: 20px;
 }
 
 .table-container {
-  position: relative;
-  top: 20px;
-  left: 100px;
+  margin-top: 20px;
 }
 
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-.add-student-button {
-    position: relative;
-    margin: 20px;
-  }
-  .clickable-text {
-    text-decoration: underline;
-  }
-  .red-text {
-    color: red;
-  }
+.header-title {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-table th,
+.mat-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+.mat-table th {
+  font-weight: bold;
+}

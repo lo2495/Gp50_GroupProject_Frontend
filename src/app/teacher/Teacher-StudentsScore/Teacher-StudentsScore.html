@@ -5,7 +5,10 @@
   </div>
   <div class="content-wrapper">
     <div class="table-container">
-      <table mat-table [dataSource]="students" class="mat-elevation-z8">
+      <div class="header-wrapper">
+        <h1 class="header-title"><mat-icon>list</mat-icon>Students Scores</h1>
+      </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="StudentID">
           <th mat-header-cell *matHeaderCellDef>Student ID</th>
           <td mat-cell *matCellDef="let student;">
@@ -35,6 +38,7 @@
         <tr mat-header-row *matHeaderRowDef="[ 'StudentID', 'Name', 'StudentEmail', 'Major', 'Details']"></tr>
         <tr mat-row *matRowDef="let class; columns:[ 'StudentID', 'Name', 'StudentEmail', 'Major', 'Details'];"></tr>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
     </div>
   </div>
 </div>

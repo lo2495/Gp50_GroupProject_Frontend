@@ -56,7 +56,7 @@ export class AdminHomePage {
     });
   }
 
-  addStudent(){
+  addStudent() {
     const dialogRef = this.dialog.open(AddStudentDialogComponent, {
       width: '60%',
       height: '50%'

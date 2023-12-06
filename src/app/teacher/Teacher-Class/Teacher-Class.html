@@ -5,52 +5,58 @@
     </div>
     <div class="content-wrapper">
         <div class="table-container">
-            <button mat-raised-button color="primary" class="add-class-button" (click)="addClass()">
-                <mat-icon>add</mat-icon> Add Class
-            </button>
-            <div class="mat-elevation-z8">
-            <table mat-table class="class-table" [dataSource]="classes">
-                <ng-container matColumnDef="CourseName">
-                    <th mat-header-cell *matHeaderCellDef>Course Name</th>
-                    <td mat-cell *matCellDef="let class">{{ class.CourseName }}</td>
-                </ng-container>
-                <ng-container matColumnDef="ClassType">
-                    <th mat-header-cell *matHeaderCellDef>Class Type</th>
-                    <td mat-cell *matCellDef="let class">{{ class.ClassType }}</td>
-                </ng-container>
-                <ng-container matColumnDef="ClassDate">
-                    <th mat-header-cell *matHeaderCellDef>Class Date</th>
-                    <td mat-cell *matCellDef="let class">{{ class.ClassDate }}</td>
-                </ng-container>
-                <ng-container matColumnDef="StartTime">
-                    <th mat-header-cell *matHeaderCellDef>Start Time</th>
-                    <td mat-cell *matCellDef="let class">{{ class.StartTime }}</td>
-                </ng-container>
-                <ng-container matColumnDef="EndTime">
-                    <th mat-header-cell *matHeaderCellDef>End Time</th>
-                    <td mat-cell *matCellDef="let class">{{ class.EndTime }}</td>
-                </ng-container>
-                <ng-container matColumnDef="Venue">
-                    <th mat-header-cell *matHeaderCellDef>Venue</th>
-                    <td mat-cell *matCellDef="let class">{{ class.Venue }}</td>
-                </ng-container>
-                <ng-container matColumnDef="InstructorName">
-                    <th mat-header-cell *matHeaderCellDef>Instructor</th>
-                    <td mat-cell *matCellDef="let class">{{ class.InstructorName }}</td>
-                </ng-container>
-                <ng-container matColumnDef="Actions">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let class">
-                        <button mat-icon-button color="primary" (click)="showClassDetails(class)">
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
+            <div class="header-wrapper">
+                <h1 class="header-title"><mat-icon>classes</mat-icon> My Classes</h1>
+                <button mat-raised-button color="primary" class="add-class-button" (click)="addClass()">
+                    <mat-icon>add</mat-icon> Add Class
+                </button>
+            </div>
+                <table mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+                    <ng-container matColumnDef="CourseName">
+                        <th mat-header-cell *matHeaderCellDef>Course Name</th>
+                        <td mat-cell *matCellDef="let class">{{ class.CourseName }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="ClassType">
+                        <th mat-header-cell *matHeaderCellDef>Class Type</th>
+                        <td mat-cell *matCellDef="let class">{{ class.ClassType }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="ClassDate">
+                        <th mat-header-cell *matHeaderCellDef>Class Date</th>
+                        <td mat-cell *matCellDef="let class">{{ class.ClassDate | date: 'yyyy-MM-dd'}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="StartTime">
+                        <th mat-header-cell *matHeaderCellDef>Start Time</th>
+                        <td mat-cell *matCellDef="let class">{{ class.StartTime }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="EndTime">
+                        <th mat-header-cell *matHeaderCellDef>End Time</th>
+                        <td mat-cell *matCellDef="let class">{{ class.EndTime }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Venue">
+                        <th mat-header-cell *matHeaderCellDef>Venue</th>
+                        <td mat-cell *matCellDef="let class">{{ class.Venue }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="InstructorName">
+                        <th mat-header-cell *matHeaderCellDef>Instructor</th>
+                        <td mat-cell *matCellDef="let class">{{ class.InstructorName }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Actions">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let class">
+                            <button mat-icon-button color="primary" (click)="showClassDetails(class)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Actions']"></tr>
-                <tr mat-row *matRowDef="let class; columns:['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Actions'];"></tr>
-            </table>
+                    <tr mat-header-row
+                        *matHeaderRowDef="['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Actions']">
+                    </tr>
+                    <tr mat-row
+                        *matRowDef="let class; columns:['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Actions'];">
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
             </div>
         </div>
     </div>
-</div>

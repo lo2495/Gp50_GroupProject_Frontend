@@ -7,4 +7,4 @@ export interface Class {
     EndTime: string;
     Venue: string;
     InstructorName: string;
-  }
+}

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog'; 
 import { Router } from '@angular/router';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-teacher-studentsscore',
@@ -10,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class TeacherStudentsScores {
   students: any[] = [];
-
-  constructor(private http: HttpClient, private router: Router) {}
-
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  constructor(private http: HttpClient, private router: Router) { }
   ngOnInit(): void {
     this.fetchStudents();
   }
@@ -21,6 +22,8 @@ export class TeacherStudentsScores {
     this.http.get('http://localhost:5000/api/students').subscribe(
       (response: any) => {
         this.students = response;
+        this.dataSource = new MatTableDataSource(this.students);
+        this.dataSource.paginator = this.paginator;
       },
       (error: any) => {
         console.error('Failed to fetch students:', error);
@@ -28,7 +31,13 @@ export class TeacherStudentsScores {
     );
   }
 
-  showDetails(studentID:string) {
-    this.router.navigate(['/score-details',studentID]);
+  showDetails(studentID: string) {
+    this.router.navigate(['/score-details', studentID]);
+  }
+  
+  onPageChange(event: PageEvent) {
+    this.paginator.pageIndex = event.pageIndex;
+    this.paginator.pageSize = event.pageSize;
+    this.dataSource.paginator = this.paginator;
   }
 }

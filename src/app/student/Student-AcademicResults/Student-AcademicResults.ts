@@ -11,7 +11,7 @@ export class StudentAcademicResults {
   userData: UserData | undefined;
   studentdetail: StudentProfile | undefined;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
   ngOnInit(): void {
     this.userData = this.userService.getUserData();
     const studentProfileString = localStorage.getItem('StudentProfile');

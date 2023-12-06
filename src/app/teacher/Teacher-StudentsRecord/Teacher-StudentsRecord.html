@@ -1,63 +1,54 @@
 <header-component></header-component>
-
 <div class="container">
     <div class="side-nav">
         <teacher-sidenav-component></teacher-sidenav-component>
     </div>
-
     <div class="content-wrapper">
         <div class="table-container">
-            <div class="mat-elevation-z8">
-                <table mat-table [dataSource]="students" class="student-table">
-                    <ng-container matColumnDef="StudentID">
-                        <th mat-header-cell *matHeaderCellDef>StudentID</th>
-                        <td mat-cell *matCellDef="let student">{{ student.StudentID }}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Name">
-                        <th mat-header-cell *matHeaderCellDef>Name</th>
-                        <td mat-cell *matCellDef="let student">{{ student.Name }}</td>
-                    </ng-container>
-
-
-                    <ng-container matColumnDef="StudentEmail">
-                        <th mat-header-cell *matHeaderCellDef>Student Email</th>
-                        <td mat-cell *matCellDef="let student">{{ student.StudentEmail }}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Gender">
-                        <th mat-header-cell *matHeaderCellDef>Gender</th>
-                        <td mat-cell *matCellDef="let student">{{ student.Gender }}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="BirthDate">
-                        <th mat-header-cell *matHeaderCellDef>Birth Date</th>
-                        <td mat-cell *matCellDef="let student">{{ student.BirthDate | date: 'yyyy-MM-dd'}}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="PhoneNumber">
-                        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
-                        <td mat-cell *matCellDef="let student">{{ student.PhoneNumber }}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Status">
-                        <th mat-header-cell *matHeaderCellDef>Status</th>
-                        <td mat-cell *matCellDef="let student">{{ student.Status }}</td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Major">
-                        <th mat-header-cell *matHeaderCellDef>Major</th>
-                        <td mat-cell *matCellDef="let student">{{ student.Major }}</td>
-                    </ng-container>
-
-                    <tr mat-header-row
-                        *matHeaderRowDef="['StudentID', 'Name','StudentEmail','Gender','BirthDate','PhoneNumber','Status','Major']">
-                    </tr>
-                    <tr mat-row
-                        *matRowDef="let student; columns: ['StudentID', 'Name','StudentEmail','Gender','BirthDate','PhoneNumber','Status','Major']">
-                    </tr>
-                </table>
+            <div class="header-wrapper">
+                <h1 class="header-title"><mat-icon>list</mat-icon>Students Records</h1>
             </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="StudentID">
+                    <th mat-header-cell *matHeaderCellDef>StudentID</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentID }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Name }}</td>
+                </ng-container>
+                <ng-container matColumnDef="StudentEmail">
+                    <th mat-header-cell *matHeaderCellDef>Student Email</th>
+                    <td mat-cell *matCellDef="let student">{{ student.StudentEmail }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Gender }}</td>
+                </ng-container>
+                <ng-container matColumnDef="BirthDate">
+                    <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+                    <td mat-cell *matCellDef="let student">{{ student.BirthDate | date: 'yyyy-MM-dd'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="PhoneNumber">
+                    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                    <td mat-cell *matCellDef="let student">{{ student.PhoneNumber }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Status }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Major">
+                    <th mat-header-cell *matHeaderCellDef>Major</th>
+                    <td mat-cell *matCellDef="let student">{{ student.Major }}</td>
+                </ng-container>
+                <tr mat-header-row
+                    *matHeaderRowDef="['StudentID', 'Name','StudentEmail','Gender','BirthDate','PhoneNumber','Status','Major']">
+                </tr>
+                <tr mat-row
+                    *matRowDef="let student; columns: ['StudentID', 'Name','StudentEmail','Gender','BirthDate','PhoneNumber','Status','Major']">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
         </div>
     </div>
 </div>

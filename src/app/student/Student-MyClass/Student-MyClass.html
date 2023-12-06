@@ -1,77 +1,65 @@
 <header-component></header-component>
-
 <div class="container">
     <div class="side-nav">
         <student-sidenav-component></student-sidenav-component>
     </div>
-
     <div class="content-wrapper">
         <div class="table-container">
+            <div class="header-wrapper">
+                <h1 class="header-title"><mat-icon>classes</mat-icon> My Classes</h1>
+            </div>
             <div *ngIf="classID && classID.length > 0">
-                <h2>My Classes</h2>
-                <div class="mat-elevation-z8">
-                    <table mat-table [dataSource]="classID" class="class-table">
-                        <!-- ClassID Column -->
-                        <ng-container matColumnDef="CourseName">
-                            <th mat-header-cell *matHeaderCellDef> Course Name </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.CourseName}} </td>
-                        </ng-container>
-
-                        <!-- ClassName Column -->
-                        <ng-container matColumnDef="ClassType">
-                            <th mat-header-cell *matHeaderCellDef> Class Type </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.ClassType }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="ClassDate">
-                            <th mat-header-cell *matHeaderCellDef> Class Date </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.ClassDate }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="StartTime">
-                            <th mat-header-cell *matHeaderCellDef> Start Time </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.StartTime }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="EndTime">
-                            <th mat-header-cell *matHeaderCellDef> End Time </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.EndTime }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="Venue">
-                            <th mat-header-cell *matHeaderCellDef> Venue </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.Venue }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="InstructorName">
-                            <th mat-header-cell *matHeaderCellDef> InstructorName </th>
-                            <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.InstructorName }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="Status">
-                            <th mat-header-cell *matHeaderCellDef> Status </th>
-                            <td mat-cell *matCellDef="let classItem"> {{  classItem.status }} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="Remarks">
-                            <th mat-header-cell *matHeaderCellDef> Remarks </th>
-                            <td mat-cell *matCellDef="let classItem"> {{  classItem.remark }} </td>
-                        </ng-container>
-                        <!-- Add more columns as needed -->
-
-                        <tr mat-header-row
-                            *matHeaderRowDef="['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Status','Remarks']">
-                        </tr>
-                        <tr mat-row
-                            *matRowDef="let row; columns: ['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Status','Remarks']">
-                        </tr>
-                    </table>
-                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="CourseName">
+                        <th mat-header-cell *matHeaderCellDef> Course Name </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.CourseName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ClassType">
+                        <th mat-header-cell *matHeaderCellDef> Class Type </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.ClassType }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ClassDate">
+                        <th mat-header-cell *matHeaderCellDef> Class Date </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.ClassDate | date:
+                            'yyyy-MM-dd'}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="StartTime">
+                        <th mat-header-cell *matHeaderCellDef> Start Time </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.StartTime }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="EndTime">
+                        <th mat-header-cell *matHeaderCellDef> End Time </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.EndTime }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Venue">
+                        <th mat-header-cell *matHeaderCellDef> Venue </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.Venue }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="InstructorName">
+                        <th mat-header-cell *matHeaderCellDef> InstructorName </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.ClassDetails.InstructorName }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.status }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Remarks">
+                        <th mat-header-cell *matHeaderCellDef> Remarks </th>
+                        <td mat-cell *matCellDef="let classItem"> {{ classItem.remark }} </td>
+                    </ng-container>
+                    <tr mat-header-row
+                        *matHeaderRowDef="['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Status','Remarks']">
+                    </tr>
+                    <tr mat-row
+                        *matRowDef="let row; columns: ['CourseName', 'ClassType','ClassDate','StartTime','EndTime','Venue','InstructorName','Status','Remarks']">
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
             </div>
         </div>
     </div>
+</div>
 
-    <div *ngIf="classID && classID.length === 0">
-        <p>No classes found.</p>
-    </div>
+<div *ngIf="classID && classID.length === 0">
+    <p>No classes found.</p>
 </div>

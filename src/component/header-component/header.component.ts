@@ -1,4 +1,4 @@
-import { Component , EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -10,13 +10,12 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserData } from 'src/app/Model/UserInterface';
 
-
 @Component({
   selector: 'header-component',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone:true,
-  imports:[
+  standalone: true,
+  imports: [
     MatListModule,
     MatIconModule,
     MatToolbarModule,
@@ -34,11 +33,11 @@ export class HeaderComponent {
     private userService: UserService,
     private router: Router,
     private http: HttpClient,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userData = this.userService.getUserData();
-  
+
     if (this.userData) {
       localStorage.setItem('userData', JSON.stringify(this.userData));
     } else {
@@ -46,7 +45,12 @@ export class HeaderComponent {
       this.userData = storedUserData ? JSON.parse(storedUserData) : undefined;
     }
   }
-
+  getUserRole(): string {
+    const storedUserData = localStorage.getItem('userData');
+    const userData = storedUserData ? JSON.parse(storedUserData) : undefined;
+    return userData ? userData.UserRole : '';
+  }
+  
   getStoredUserName(): string {
     const storedUserData = localStorage.getItem('userData');
     const userData = storedUserData ? JSON.parse(storedUserData) : undefined;
@@ -58,18 +62,15 @@ export class HeaderComponent {
   }
 
   openProfile() {
-    if (this.userData?.UserRole == "student")
-    {
+    if (this.userData?.UserRole == "student") {
       this.router.navigate(['/student-profile']);
-    }else if (this.userData?.UserRole == "teacher")
-    {
+    } else if (this.userData?.UserRole == "teacher") {
       this.router.navigate(['/teacher-profile']);
     }
-
   }
 
   onLogout() {
-    localStorage.removeItem('userName'); 
+    localStorage.removeItem('userName');
     this.http.post('http://localhost:5000/api/logout', {}).subscribe(
       (response: any) => {
         console.log(response.message);

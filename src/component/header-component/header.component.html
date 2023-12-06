@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar [color]="getUserRole() === 'teacher' ? 'accent' : (getUserRole() === 'Admin' ? 'warn' : 'primary')">
   <button mat-icon-button class="sidebar-button" (click)="toggleSidebar()">
     <mat-icon>menu</mat-icon>
   </button>
@@ -9,7 +9,7 @@
     <mat-icon>account_circle</mat-icon>
     </button>
   <mat-menu #userAccountMenu="matMenu" xPosition="after">
-    <button mat-menu-item (click)="openProfile()">Profile</button>
+    <button *ngIf="userData?.UserRole !== 'Admin'" mat-menu-item (click)="openProfile()">Profile</button>
     <button mat-menu-item (click)="onLogout()">Logout</button>
   </mat-menu>
 </mat-toolbar>

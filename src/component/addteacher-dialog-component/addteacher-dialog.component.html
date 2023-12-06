@@ -25,7 +25,9 @@
         <mat-grid-tile>
             <mat-form-field>
                 <mat-label>Department</mat-label>
-                <input matInput [(ngModel)]="teacher.department" name="department" required>
+                <mat-select [(ngModel)]="teacher.department" name="department" required>
+                    <mat-option value="Computer Science">Computer Science</mat-option>
+                  </mat-select>
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>

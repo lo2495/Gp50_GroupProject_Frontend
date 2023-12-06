@@ -24,10 +24,10 @@ export class UserService {
     const requestData = { loginID, UserRole };
     return this.http.post<UserData>('http://localhost:5000/api/user-profile', requestData);
   }
-  updateStudentProfile(studentProfile:StudentProfile): Observable<any> {  
+  updateStudentProfile(studentProfile: StudentProfile): Observable<any> {
     return this.http.post<any>('http://localhost:5000/api/students/update-profile', studentProfile);
   }
-  updateTeacherProfile(teacherProfile:TeacherProfile): Observable<any> {  
+  updateTeacherProfile(teacherProfile: TeacherProfile): Observable<any> {
     return this.http.post<any>('http://localhost:5000/api/teachers/update-profile', teacherProfile);
   }
 }

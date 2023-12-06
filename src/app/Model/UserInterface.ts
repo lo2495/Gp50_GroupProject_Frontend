@@ -5,25 +5,22 @@ export interface UserData {
     UserRole: string;
     Name: string;
 }
-
 export interface CourseGrade {
     CourseName: string;
     Grade: string;
 }
-
 export interface StudentProfile extends UserData {
     StudentID: string;
-    Name:string;
-    StudentEmail:string;
-    Gender:string;
-    BirthDate:Date;
-    PhoneNumber:string;
-    Status:string;
+    Name: string;
+    StudentEmail: string;
+    Gender: string;
+    BirthDate: Date;
+    PhoneNumber: string;
+    Status: string;
     Major: string;
     Grade: { CourseName: string, Grade: string }[];
-  }
-  
-  export interface TeacherProfile extends UserData {
+}
+export interface TeacherProfile extends UserData {
     TeacherID: string;
     Name: string;
     Gender: string;
@@ -32,4 +29,4 @@ export interface StudentProfile extends UserData {
     PhoneNumber: string;
     Department: string;
     Designation: string;
-  }
+}

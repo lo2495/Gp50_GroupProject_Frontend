@@ -1,28 +1,37 @@
 .container {
     display: flex;
-    flex-direction: row;
     height: 100vh;
 }
 
 .side-nav {
     width: 200px;
+    background-color: #f5f5f5;
 }
-
 
 .content-wrapper {
     flex-grow: 1;
-    display: flex;
+    padding: 20px;
 }
 
 .table-container {
-    position: relative;
-    top: 20px;
-    left: 100px;
+    margin-top: 20px;
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
 }
 
 .add-class-button {
-    position: relative;
-    margin: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
 }
 
 .mat-elevation-z8 {
