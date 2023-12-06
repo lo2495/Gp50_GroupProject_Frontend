@@ -81,10 +81,10 @@
                     <ng-container matColumnDef="edit">
                         <th mat-header-cell *matHeaderCellDef></th>
                         <td mat-cell *matCellDef="let student">
-                            <button mat-icon-button color="primary" (click)="editable(student)">
+                            <button mat-icon-button color="accent" (click)="editable(student)">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                            <button mat-icon-button color="primary" (click)="saveChanges()" *ngIf="student.isEditable">
+                            <button mat-icon-button color="accent" (click)="saveChanges()" *ngIf="student.isEditable">
                                 <mat-icon>save</mat-icon>
                             </button>
                         </td>

@@ -1,3 +1,4 @@
+<body>
 <mat-card class="login-card">
   <mat-card-header>
     <mat-card-title>{{ 'Sign In' }}</mat-card-title>
@@ -14,6 +15,10 @@
       </mat-form-field>
       <button mat-raised-button color="primary" type="submit">{{ 'Login' }}</button>
     </form>
+    <div class="reminder-container">
+      <p class="reminder-text">Reminder: The password for all users except Admin is "123123".</p>
+    </div>
     <div *ngIf="message" style="margin-top: 20px;">{{ message }}</div>
   </mat-card-content>
 </mat-card>
+</body>
